@@ -1,0 +1,297 @@
+/* VARIABLES */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --subtext-color: #555555;
+    --card-bg: #f8f8f8;
+    --btn-bg: #000000;
+    --btn-text: #ffffff;
+    --border: #e0e0e0;
+}
+body.dark-mode {
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --subtext-color: #a0a0a0;
+    --card-bg: #151515;
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+    --border: #222222;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    transition: background-color 0.3s, color 0.3s;
+    height: 100vh;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR (Design compact) */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 30px; border-bottom: 1px solid var(--border);
+    background-color: var(--bg-color);
+}
+.logo { height: 45px; object-fit: contain; }
+.nav-tabs { display: flex; gap: 40px; }
+.burger-menu { display: none; }
+.tab-btn {
+    background: none; border: none; color: var(--subtext-color);
+    font-weight: 700; font-size: 1rem;
+    text-transform: uppercase; cursor: pointer; transition: 0.2s; padding-bottom: 5px;
+}
+.tab-btn.active { color: var(--text-color); border-bottom: 2px solid var(--text-color); }
+.tab-btn:hover { color: var(--text-color); }
+#btn-theme { background: none; border: none; font-size: 1.3rem; color: var(--text-color); cursor: pointer; }
+
+/* ZONE CENTRALE */
+.app-container {
+    flex-grow: 1; display: flex; justify-content: center; align-items: flex-start;
+    padding: 20px 20px 30px 20px; text-align: center; overflow-y: auto;
+}
+.tab-content { display: none; width: 100%; max-width: 1200px; animation: fadeIn 0.4s ease; margin: 0 auto; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ACCUEIL (Design compact) */
+h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: 3px; margin-bottom: 5px; }
+h2 { font-size: 1rem; color: var(--subtext-color); margin-bottom: 15px; font-weight: 500; }
+.concept-box { 
+    background-color: var(--card-bg); 
+    padding: 20px 30px; 
+    border-radius: 12px; 
+    border: 1px solid var(--border);
+    max-width: 900px; 
+    margin: 15px auto 0 auto;
+}
+.concept-box p { font-size: 0.95rem !important; line-height: 1.5 !important; }
+.concept-box h3 { font-size: 1.2rem !important; margin-bottom: 5px !important; }
+.section-titre { font-size: 1.6rem; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+
+/* BOUTON PRINCIPAL */
+.btn-principal {
+    background-color: var(--btn-bg); color: var(--btn-text);
+    padding: 12px 30px; font-size: 0.95rem; font-weight: 900;
+    border: none; border-radius: 50px; cursor: pointer;
+    text-transform: uppercase; transition: transform 0.2s;
+    margin-bottom: 15px !important;
+}
+.btn-principal:hover { transform: scale(1.05); }
+
+/* TARIFS */
+.prix-encadre { 
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px; 
+    max-width: 500px; 
+    margin: 20px auto 40px auto; 
+    padding: 0;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    overflow: hidden;
+}
+.prix-header { padding: 30px 40px 15px 40px; }
+.prix-label { text-transform: uppercase; font-weight: 800; letter-spacing: 2px; font-size: 1.1rem; color: var(--subtext-color); }
+.prix-chiffre { font-size: 5rem; font-weight: 900; margin: 5px 0; line-height: 1; }
+.prix-desc { color: var(--subtext-color); font-size: 1rem; }
+.prix-divider { border: none; border-top: 1px dashed var(--border); margin: 0 40px; }
+
+.liste-coupes { list-style: none; padding: 25px 40px; text-align: left; margin: 0 auto; display: table; }
+.liste-coupes li { font-weight: 600; font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 15px; }
+.liste-coupes li i { color: var(--text-color); }
+
+.paiement-box { background-color: var(--bg-color); border-top: 1px solid var(--border); padding: 20px; }
+.paiement-titre { font-size: 0.85rem; font-weight: 700; color: var(--subtext-color); text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
+.paiement-icones { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.badge-paiement { display: flex; align-items: center; gap: 8px; background-color: var(--card-bg); border: 1px solid var(--border); padding: 10px 18px; border-radius: 50px; font-weight: 700; font-size: 0.9rem; color: var(--text-color); transition: transform 0.2s; }
+.badge-paiement:hover { transform: translateY(-3px); }
+
+/* VITRINE : DESIGN RESPONSIVE & ADAPTATIF */
+.vitrine-row {
+    display: flex; 
+    gap: clamp(20px, 4vw, 60px); 
+    align-items: flex-start; /* Aligne la vidéo et le titre h4 proprement par le haut */
+    margin-bottom: 40px; 
+    text-align: left;
+}
+
+/* RÉEL (La vidéo) */
+.vitrine-reel { 
+    flex: 0 0 clamp(200px, 20vw, 300px); 
+}
+.reel-box {
+    width: 100%; 
+    height: auto; 
+    aspect-ratio: 9 / 16; 
+    border-radius: 16px; background-color: #111;
+    border: 4px solid var(--border); position: relative; overflow: hidden;
+    display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.reel-video { 
+    width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2; 
+}
+.reel-text-attente { position: absolute; color: white; font-weight: 700; z-index: 1; }
+
+/* PHOTOS */
+.vitrine-photos { flex: 1; min-width: 0; }
+.vitrine-photos h4 { margin-bottom: 25px; font-size: 1.5rem; font-weight: 900; text-transform: uppercase; margin-top: 0; }
+
+.carousel-container { position: relative; display: flex; align-items: center; }
+.carousel-btn {
+    background-color: var(--btn-bg); color: var(--btn-text); border: none;
+    width: 45px; height: 45px; border-radius: 50%; cursor: pointer; font-size: 1.2rem;
+    display: flex; justify-content: center; align-items: center; position: absolute; z-index: 10;
+    transition: transform 0.2s, background-color 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.carousel-btn:hover { transform: scale(1.1); }
+.prev-btn { left: -22px; }
+.next-btn { right: -22px; }
+
+.vitrine-scroll::-webkit-scrollbar { display: none; }
+.vitrine-scroll {
+    display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory;
+    -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth;
+}
+
+.photo-box {
+    height: clamp(250px, 35vh, 360px); 
+    width: auto; 
+    aspect-ratio: 3 / 4; 
+    flex: 0 0 auto; 
+    border-radius: 12px; object-fit: cover;
+    scroll-snap-align: center; border: 1px solid var(--border); box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    cursor: pointer; transition: transform 0.2s;
+}
+.photo-box:hover { transform: scale(1.03); }
+
+.vitrine-divider {
+    border: none; border-top: 1px solid var(--border); margin: clamp(30px, 6vw, 60px) 0;
+}
+
+/* CONTACT */
+.contact-card {
+    background-color: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 12px; padding: 30px; max-width: 700px; margin: 0 auto;
+}
+.form-contact { display: flex; flex-direction: column; gap: 15px; }
+.form-row { display: flex; gap: 15px; }
+.form-row input { flex: 1; }
+.form-contact input, .form-contact textarea {
+    width: 100%; padding: 14px; border-radius: 8px; border: 1px solid var(--border);
+    background-color: var(--bg-color); color: var(--text-color); font-family: 'Montserrat', sans-serif; 
+    font-size: 0.95rem; outline: none; transition: border-color 0.3s;
+}
+.form-contact input:focus, .form-contact textarea:focus { border-color: var(--text-color); }
+.form-contact textarea { min-height: 120px; resize: none; }
+
+/* PIED DE PAGE */
+.footer-contact { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--subtext-color); font-size: 0.9rem; }
+.reseaux-sociaux { margin: 15px 0; font-size: 1.8rem; }
+.reseaux-sociaux a { color: var(--text-color); margin: 0 12px; text-decoration: none; transition: 0.3s; }
+.reseaux-sociaux a:hover { color: var(--subtext-color); transform: scale(1.2); display: inline-block; }
+
+/* MODAL CALENDLY & LIGHTBOX */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px);
+    display: flex; justify-content: center; align-items: center; z-index: 2000;
+}
+.modal-overlay.hidden { display: none; }
+.modal-container { background-color: #ffffff; width: 95%; max-width: 900px; height: 90vh; border-radius: 16px; position: relative; overflow: hidden; }
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 2rem; background: none; border: none; cursor: pointer; color: #333; z-index: 2001; }
+
+#lightbox-modal { flex-direction: row; }
+#lightbox-img, #lightbox-video { 
+    max-width: 85vw; 
+    max-height: 85vh; 
+    border-radius: 12px; 
+    object-fit: contain; 
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6); 
+    outline: none;
+}
+
+.lightbox-btn {
+    background: none; border: none; color: white; font-size: 3rem; cursor: pointer;
+    position: absolute; top: 50%; transform: translateY(-50%); padding: 20px; transition: 0.3s; z-index: 3001;
+}
+.lightbox-btn:hover { color: #aaaaaa; }
+.lightbox-btn.left { left: 3%; }
+.lightbox-btn.right { right: 3%; }
+
+/* ANIMATIONS APPARITION */
+@keyframes slideUpFade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.concept-box, .prix-encadre, .vitrine-row, .contact-card { animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .navbar { padding: 15px 20px; }
+    .burger-menu { 
+        display: block; background: none; border: none; font-size: 1.8rem; 
+        color: var(--text-color); cursor: pointer; margin-left: auto; margin-right: 20px;
+    }
+    #btn-theme { position: static; }
+    
+    .nav-tabs { 
+        display: none; flex-direction: column; position: absolute; 
+        top: 65px; left: 0; width: 100%; background-color: var(--card-bg); 
+        border-bottom: 1px solid var(--border); padding: 20px 0; gap: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 1000;
+    }
+    .nav-tabs.open { display: flex; animation: slideDown 0.3s ease; }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+    h1 { font-size: 2.2rem; }
+    .btn-principal { width: 100%; }
+    .modal-container { width: 100%; height: 100vh; border-radius: 0; }
+    .app-container { padding-top: 20px; padding-bottom: 40px; }
+    .form-row { flex-direction: column; gap: 15px; }
+    .contact-card { padding: 20px 15px; border-radius: 8px; }
+    
+    /* Amélioration Vitrine Mobile (Grille Instagram) - Tailles réduites */
+    .vitrine-row { flex-direction: column; gap: 20px; align-items: center; }
+    
+    /* On réduit la taille du Réel (Aperçu) */
+    .vitrine-reel { flex: auto; width: 100%; max-width: 240px; margin: 0 auto; } 
+    
+    /* On réduit la largeur globale de la zone des photos */
+    .vitrine-photos { width: 100%; max-width: 320px; margin: 0 auto; text-align: center; } 
+    .vitrine-photos h4 { font-size: 1.3rem; margin-bottom: 15px; }
+    
+    .carousel-btn { display: none; }
+    
+    .vitrine-scroll { 
+        display: grid; 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; /* Espace entre les photos légèrement réduit */
+        overflow-x: visible; 
+        padding-bottom: 0;
+    }
+    .photo-box {
+        width: 100%;
+        flex: none; 
+        height: auto;
+        aspect-ratio: 3 / 4;
+        border-radius: 8px;
+    }
+
+    /* OPTIMISATION MOBILE : TARIFS PLUS COMPACTS */
+    .section-titre { font-size: 1.4rem; } /* Titre de section légèrement réduit */
+    
+    .prix-encadre { margin: 10px auto 30px auto; border-radius: 12px; }
+    .prix-header { padding: 20px 20px 10px 20px; }
+    .prix-chiffre { font-size: 4rem; margin: 0; } /* Le 10€ un peu plus discret */
+    .prix-label { font-size: 0.9rem; }
+    .prix-desc { font-size: 0.85rem; }
+    
+    .prix-divider { margin: 0 20px; }
+    
+    .liste-coupes { padding: 15px 20px; }
+    .liste-coupes li { font-size: 0.95rem; margin-bottom: 10px; gap: 10px; }
+    
+    .paiement-box { padding: 15px; }
+    .paiement-titre { font-size: 0.75rem; margin-bottom: 10px; }
+    .badge-paiement { padding: 8px 14px; font-size: 0.85rem; }
+}
