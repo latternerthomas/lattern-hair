@@ -10,121 +10,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- SEO & Aperçu Réseaux Sociaux -->
+    <!-- SEO -->
     <meta property="og:title" content="LATTERN'HAIR | Barber Étudiant à Blois">
     <meta property="og:description" content="Pas de chichis, juste du bon taff. Découvrez mes coupes, mes tarifs et réservez votre créneau sur Blois (Tarif unique : 10€).">
     <meta property="og:image" content="images/logo.png">
-    <meta property="og:url" content="TON_LIEN_GITHUB_ICI">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
 
-    <!-- Lien vers ton design CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- BARRE DE NAVIGATION -->
+    <!-- BARRE DE NAVIGATION APPLE STYLE -->
     <nav class="navbar">
         <img src="images/logo.png" alt="LATTERN'HAIR" class="logo" id="site-logo">
-
         <button id="btn-burger" class="burger-menu" title="Menu"><i class="fa-solid fa-bars"></i></button>
 
         <div class="nav-tabs" id="nav-tabs">
-            <button class="tab-btn active" data-target="accueil">Accueil</button>
-            <button class="tab-btn" data-target="tarifs">Tarifs</button>
-            <button class="tab-btn" data-target="vitrine">Vitrine</button>
-            <button class="tab-btn" data-target="contact">Contact</button>
+            <a href="#accueil" class="tab-btn active">Accueil</a>
+            <a href="#concept" class="tab-btn">Concept</a>
+            <a href="#tarifs" class="tab-btn">Tarifs</a>
+            <a href="#vitrine" class="tab-btn">Vitrine</a>
+            <a href="#contact" class="tab-btn">Contact</a>
         </div>
-        <button id="btn-theme" title="Mode Sombre/Clair"><i class="fa-solid fa-moon"></i></button>
     </nav>
 
-    <!-- ZONE CENTRALE (Les Onglets) -->
     <main class="app-container">
         
-        <!-- ONGLET 1 : ACCUEIL -->
-        <section id="accueil" class="tab-content active">
-            <h1>LATTERN'HAIR</h1>
-            <h2>Pas de chichis, juste du bon taff pour vous mettre bien.</h2>
-            <button id="btn-open-modal" class="btn-principal" style="margin-bottom: 20px;">Réserver mon créneau</button>
-            
-            <div class="concept-box">
-                <h3 class="section-titre">Le Concept</h3>
-                <p style="color: var(--subtext-color); max-width: 700px; margin: 0 auto; line-height: 1.5;">
-                Salut l'équipe ! Moi c'est Thomas, étudiant et barbeur amateur passionné.<br/>
-                Mon objectif est simple : vous proposer des coupes clean, sans prise de tête.<br/>
-                Je prends le temps d'écouter ce que vous voulez pour un résultat le plus propre possible.<br><br>
-                Le concept ? Pas de chichis : Taper, Burst Fade, Contours... peu importe la demande, le tarif est bloqué à 10 balles.<br/>
-                Je vous reçois sur Blois, uniquement sur RDV car les créneaux sont très limités et variables.
-                </p>
-            </div>
-
-            <!-- FOOTER GLOBAL -->
-            <footer class="footer-contact">                
-                <div class="reseaux-sociaux">
-                    <a href="https://instagram.com/latternhair" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@latternhair" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="mailto:latternerthomas07@gmail.com" title="Envoyer un email"><i class="fa-solid fa-envelope"></i></a>
-                </div>
-                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--subtext-color);">© 2026 LATTERN'HAIR</p>
-            </footer>
+        <!-- SECTION 1 : ACCUEIL / HERO -->
+        <section id="accueil" class="page-section section-blanc">
+            <!-- L'accueil s'anime dès le chargement avec un effet fondu -->
+            <h1 class="reveal reveal-up visible">LATTERN'HAIR</h1>
+            <h2 class="reveal reveal-up delay-1 visible" style="margin-bottom: 40px;">Pas de chichis, juste du bon taff pour vous mettre bien.</h2>
+            <button class="btn-principal btn-reserver reveal reveal-up delay-2 visible">Réserver mon créneau</button>
         </section>
 
-       <!-- ONGLET 2 : TARIFS -->
-        <section id="tarifs" class="tab-content">
-            <h3 class="section-titre">Tarifs & Prestations</h3>
-            
-            <div class="prix-encadre">
-                <div class="prix-header">
-                    <p class="prix-label">Tarif Unique</p>
-                    <div class="prix-chiffre">10€</div>
-                    <p class="prix-desc">Peu importe le style, le prix reste le même.</p>
-                </div>
-                
-                <hr class="prix-divider">
-                
-                <ul class="liste-coupes">
-                    <li><i class="fa-solid fa-check"></i> Taper Fade</li>
-                    <li><i class="fa-solid fa-check"></i> Burst Fade</li>
-                    <li><i class="fa-solid fa-check"></i> Mid / High / Low Fade</li>
-                    <li><i class="fa-solid fa-check"></i> Buzz Cut</li>
-                    <li><i class="fa-solid fa-check"></i> Contours & Barbe</li>
-                    <li><i class="fa-solid fa-check"></i> Autres (Mullet, French Crop...)</li>
-                </ul>
+        <!-- SECTION 2 : LE CONCEPT -->
+        <section id="concept" class="page-section section-blanc">
+            <h3 class="section-titre reveal reveal-up">Le Concept</h3>
+            <p class="concept-text reveal reveal-up delay-1">
+                Salut l'équipe ! Moi c'est Thomas, étudiant et barbeur amateur passionné.<br><br>
+                Mon objectif est simple : vous proposer des coupes clean, sans prise de tête. Je prends le temps d'écouter ce que vous voulez pour un résultat le plus propre possible.<br><br>
+                Le concept ? Pas de chichis : Taper, Burst Fade, Contours... peu importe la demande, le tarif est bloqué à 10 balles.<br><br>
+                Je vous reçois sur Blois, uniquement sur RDV car les créneaux sont très limités et variables.
+            </p>
+        </section>
 
-                <div class="paiement-box">
-                    <p class="paiement-titre">Paiements acceptés sur place</p>
-                    <div class="paiement-icones">
-                        <span class="badge-paiement"><i class="fa-solid fa-money-bill-wave"></i> Espèces</span>
-                        <span class="badge-paiement"><i class="fa-brands fa-paypal"></i> PayPal</span>
-                        <span class="badge-paiement"><i class="fa-solid fa-mobile-screen"></i> Wero</span>
+       <!-- SECTION 3 : TARIFS -->
+        <section id="tarifs" class="page-section section-noire">
+            <div class="tarifs-premium-container">
+                <!-- Côté Gauche arrive de la gauche -->
+                <div class="premium-price-side reveal reveal-left">
+                    <span class="premium-label">Toutes les coupes</span>
+                    <div class="premium-chiffre">10€</div>
+                    <p class="premium-desc">Pas de surprise. Le tarif reste strictement le même peu importe le style demandé.</p>
+                    
+                    <div class="premium-paiement">
+                        <span>Espèces</span> <span class="dot">•</span>
+                        <span>PayPal</span> <span class="dot">•</span>
+                        <span>Wero</span>
                     </div>
                 </div>
-            </div>
 
-            <!-- FOOTER GLOBAL -->
-            <footer class="footer-contact">
-                <div class="reseaux-sociaux">
-                    <a href="https://instagram.com/latternhair" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@latternhair" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="mailto:latternerthomas07@gmail.com" title="Envoyer un email"><i class="fa-solid fa-envelope"></i></a>
+                <!-- Côté Droit arrive de la droite -->
+                <div class="premium-services-side reveal reveal-right delay-1">
+                    <ul class="premium-list">
+                        <li>Taper Fade <span>Inclus</span></li>
+                        <li>Burst Fade <span>Inclus</span></li>
+                        <li>Mid / High / Low Fade <span>Inclus</span></li>
+                        <li>Buzz Cut <span>Inclus</span></li>
+                        <li>Contours & Barbe <span>Inclus</span></li>
+                        <li>Autres (Mullet, Crop...) <span>Inclus</span></li>
+                    </ul>
                 </div>
-                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--subtext-color);">© 2026 LATTERN'HAIR</p>
-            </footer>
+            </div>
         </section>
 
-        <!-- ONGLET 3 : VITRINE -->
-        <section id="vitrine" class="tab-content">
-            <h3 class="section-titre">Vitrine</h3>
-            <p style="color: var(--subtext-color); margin-bottom: 40px;">Découvre les coupes en Réel ou sous tous les angles en Photos.</p>
+        <!-- SECTION 4 : VITRINE -->
+        <section id="vitrine" class="page-section section-blanc">
+            <h3 class="section-titre reveal reveal-up">Vitrine</h3>
+            <p class="reveal reveal-up delay-1" style="color: var(--subtext-color); margin-bottom: 40px;">Découvre les coupes en Réel ou sous tous les angles en Photos.</p>
 
-            <!-- COUPE 1 : BURST FADE (Eliot) -->
             <div class="vitrine-row">
-                <div class="vitrine-reel">
+                <div class="vitrine-reel reveal reveal-left">
                     <div class="reel-box">
-                    <video src="images/eliot/reel.mp4" autoplay muted loop playsinline class="reel-video" style="cursor: pointer;"></video>                   
+                        <video src="images/eliot/reel.mp4" autoplay muted loop playsinline class="reel-video" style="cursor: pointer;"></video>                   
+                    </div>
                 </div>
-                </div>
-                <div class="vitrine-photos">
+                <div class="vitrine-photos reveal reveal-right delay-1">
                     <h4>Burst Fade</h4>
                     <div class="carousel-container">
                         <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
@@ -140,16 +113,15 @@
                 </div>
             </div>
 
-            <hr class="vitrine-divider">
+            <hr class="vitrine-divider reveal reveal-up">
 
-            <!-- COUPE 2 : LOW FADE (Noah) -->
             <div class="vitrine-row">
-                <div class="vitrine-reel">
+                <div class="vitrine-reel reveal reveal-left">
                     <div class="reel-box">
-                    <video src="images/noah/reel.mp4" autoplay muted loop playsinline class="reel-video" style="cursor: pointer;"></video>                    
+                        <video src="images/noah/reel.mp4" autoplay muted loop playsinline class="reel-video" style="cursor: pointer;"></video>                    
                     </div>
                 </div>
-                <div class="vitrine-photos">
+                <div class="vitrine-photos reveal reveal-right delay-1">
                     <h4>Low Fade</h4>
                     <div class="carousel-container">
                         <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
@@ -165,16 +137,15 @@
                 </div>
             </div>
 
-            <hr class="vitrine-divider">
+            <hr class="vitrine-divider reveal reveal-up">
 
-            <!-- COUPE 3 : BURST FADE (Maxence) -->
             <div class="vitrine-row">
-                <div class="vitrine-reel">
+                <div class="vitrine-reel reveal reveal-left">
                     <div class="reel-box">
                         <video src="images/maxence/reel.mp4" autoplay muted loop playsinline class="reel-video" style="cursor: pointer;"></video>                    
                     </div>
                 </div>
-                <div class="vitrine-photos">
+                <div class="vitrine-photos reveal reveal-right delay-1">
                     <h4>Burst Fade</h4>
                     <div class="carousel-container">
                         <button class="carousel-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
@@ -188,24 +159,16 @@
                     </div>
                 </div>
             </div>
-
-            <!-- FOOTER GLOBAL -->
-            <footer class="footer-contact">              
-                <div class="reseaux-sociaux">
-                    <a href="https://instagram.com/latternhair" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@latternhair" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="mailto:latternerthomas07@gmail.com" title="Envoyer un email"><i class="fa-solid fa-envelope"></i></a>
-                </div>
-                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--subtext-color);">© 2026 LATTERN'HAIR</p>
-            </footer>
+            
+            <button class="btn-principal btn-reserver reveal reveal-up delay-1" style="margin-top: 30px;">Prendre RDV maintenant</button>
         </section>
 
-       <!-- ONGLET 4 : CONTACT -->
-        <section id="contact" class="tab-content">
-            <h3 class="section-titre">Contact</h3>
-            <p style="color: var(--subtext-color); margin-bottom: 40px;">Un renseignement, un conseil, un créneau ? C'est par ici, n'hésitez pas.</p>
+       <!-- SECTION 5 : CONTACT -->
+        <section id="contact" class="page-section section-noire">
+            <h3 class="section-titre reveal reveal-up">Contact</h3>
+            <p class="reveal reveal-up delay-1" style="color: var(--subtext-color); margin-bottom: 40px;">Un renseignement, un conseil, un créneau ? C'est par ici, n'hésitez pas.</p>
             
-            <div class="contact-card">
+            <div class="contact-card reveal reveal-up delay-2">
                 <form class="form-contact" action="https://formspree.io/f/xaqaeevl" method="POST">
                     <div class="form-row">
                         <input type="text" id="nom" name="nom" placeholder="Nom complet" required>
@@ -216,20 +179,40 @@
                         <input type="text" id="sujet" name="sujet" placeholder="Sujet" required>
                     </div>
                     <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
-                    <button type="submit" class="btn-principal" style="width: 100%; margin-top: 10px;">Envoyer</button>
+                    <button type="submit" class="btn-principal" style="width: 100%; margin-top: 10px; margin-bottom: 0;">Envoyer</button>
                 </form>
             </div>
-
-            <!-- FOOTER GLOBAL -->
-            <footer class="footer-contact">
-                <div class="reseaux-sociaux">
-                    <a href="https://instagram.com/latternhair" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@latternhair" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="mailto:latternerthomas07@gmail.com" title="Envoyer un email"><i class="fa-solid fa-envelope"></i></a>
-                </div>
-                <p style="margin-top: 10px; font-size: 0.8rem; color: var(--subtext-color);">© 2026 LATTERN'HAIR</p>
-            </footer> 
         </section>
+
+        <!-- FOOTER PRO -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-col about">
+                    <h4>LATTERN'HAIR</h4>
+                    <p>Étudiant et passionné par la coiffure. J'apprends et je m'exerce à chaque coupe pour vous offrir un résultat clean et sans prise de tête.</p>
+                </div>
+                <div class="footer-col links">
+                    <h4>Raccourcis</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#concept">Le Concept</a></li>
+                        <li><a href="#tarifs">Tarifs</a></li>
+                        <li><a href="#vitrine">La Vitrine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col social">
+                    <h4>Suivez-moi</h4>
+                    <div class="reseaux-sociaux">
+                        <a href="https://instagram.com/latternhair" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://tiktok.com/@latternhair" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="mailto:latternerthomas07@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 LATTERN'HAIR - Tous droits réservés.</p>
+            </div>
+        </footer>
 
     </main>
 
@@ -237,20 +220,17 @@
     <div id="calendly-modal" class="modal-overlay hidden">
         <div class="modal-container">
             <button id="btn-close-modal" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-            <div class="calendly-inline-widget" data-url="https://calendly.com/latternerthomas07/lattern-hair?hide_gdpr_banner=1" style="min-width:320px; height:100%; border:none;"></div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/latternerthomas07/lattern-hair?hide_gdpr_banner=1" style="min-width:320px; height:780px; border:none;"></div>
             <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         </div>
     </div>
 
-   <!-- FENÊTRE POP-UP LIGHTBOX (Agrandissement photos et vidéos) -->
+   <!-- FENÊTRE POP-UP LIGHTBOX -->
     <div id="lightbox-modal" class="modal-overlay hidden" style="z-index: 3000;">
         <button id="lightbox-close" class="close-btn" style="color: white; right: 30px; top: 30px;"><i class="fa-solid fa-xmark"></i></button>
         <button id="lightbox-prev" class="lightbox-btn left"><i class="fa-solid fa-chevron-left"></i></button>
-        
-        <!-- Conteneurs dynamiques (Image ou Vidéo) -->
         <img id="lightbox-img" src="" alt="Aperçu" style="display: none;">
         <video id="lightbox-video" controls playsinline style="display: none;"></video>
-        
         <button id="lightbox-next" class="lightbox-btn right"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
