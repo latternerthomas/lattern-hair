@@ -295,10 +295,16 @@ h2 { font-size: 1.1rem; color: var(--subtext-color); margin-bottom: 15px; font-w
 .lightbox-btn.left { left: 3%; }
 .lightbox-btn.right { right: 3%; }
 
-/* MOBILE */
+
+/* ========================================== */
+/* MOBILE (Adaptation pour téléphones)        */
+/* ========================================== */
 @media (max-width: 900px) {
+    /* 1. Navbar et Burger */
     .navbar { padding: 15px 20px; }
-    .burger-menu { display: block; background: none; border: none; font-size: 1.8rem; color: #000; cursor: pointer; margin-left: auto; margin-right: 20px; }
+    .burger-menu { display: block; background: none; border: none; font-size: 1.6rem; color: #000; cursor: pointer; margin-left: auto; margin-right: 10px; }
+    
+    /* 2. Menu déroulant ultra-moderne (Centré et resserré) */
     .nav-tabs { 
         display: none; 
         flex-direction: column; 
@@ -307,54 +313,74 @@ h2 { font-size: 1.1rem; color: var(--subtext-color); margin-bottom: 15px; font-w
         left: 0; 
         width: 100%; 
         transform: none;
-        background-color: rgba(255, 255, 255, 0.95); 
-        border-bottom: 1px solid var(--border); 
-        padding: 20px 0; 
-        gap: 15px; 
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+        background-color: rgba(255, 255, 255, 0.98); 
+        padding: 20px 0; /* Espace en haut et en bas du menu global */
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
         z-index: 1000; 
+        border-bottom: none;
+        gap: 5px; /* C'est ici que tu peux réduire ou agrandir l'écart entre les mots */
     }
     .nav-tabs.open { display: flex; }
-    h1 { font-size: 2.6rem; margin-top: 20px; margin-bottom: 25px; }
-    .page-section { padding: 60px 15px; }
     
-    /* Adaptation Mobile Tarifs Premium */
-    .tarifs-premium-container { flex-direction: column; gap: 50px; text-align: center; }
-    .premium-price-side { padding-right: 0; border-right: none; display: flex; flex-direction: column; align-items: center; }
-    .premium-chiffre { font-size: 7rem; }
-    .premium-list li { font-size: 1.1rem; padding: 18px 0; }
+    .tab-btn {
+        padding: 12px 20px; /* Épaisseur de la zone cliquable réduite */
+        width: 100%;
+        text-align: center; /* Texte centré pour un look plus design */
+        font-size: 1.05rem; 
+        border-bottom: none; /* On supprime les lignes disgracieuses */
+    }
+    .tab-btn::after { display: none; }
+    /* 3. Textes globaux (Titres et paragraphes réduits) */
+    h1 { 
+        font-size: clamp(1.8rem, 7vw, 2.3rem); /* Réduit globalement */
+        letter-spacing: 2px; 
+        margin-top: 15px; 
+        margin-bottom: 15px; 
+    }
+    h2 { font-size: 0.9rem; line-height: 1.5; } /* Réduit (était à 1rem) */
+    .section-titre { font-size: 1.3rem; margin-bottom: 10px; } /* Titres de section plus discrets */
+    .concept-text { font-size: 0.95rem; line-height: 1.6; } /* Paragraphe plus fin */
     
+    .page-section { padding: 50px 20px; }
+    #accueil { min-height: 80vh; }
+    
+    /* 4. Boutons */
+    .btn-principal {
+        width: 100%;
+        max-width: 320px; 
+        padding: 15px 20px;
+        font-size: 0.9rem; /* Réduit (était à 1rem) */
+    }
+    
+    /* 5. Tarifs Premium Mobile (Textes et Chiffre plus petits) */
+    .tarifs-premium-container { flex-direction: column; gap: 35px; text-align: left; }
+    .premium-price-side { padding-right: 0; border-right: none; display: flex; flex-direction: column; align-items: flex-start; border-bottom: 1px solid var(--border); padding-bottom: 25px; }
+    
+    .premium-label { font-size: 0.75rem; }
+    .premium-chiffre { font-size: 5rem; margin: 5px 0 10px 0; } /* Encore réduit (était à 6rem) */
+    .premium-desc { font-size: 0.9rem; margin-bottom: 25px; }
+    .premium-paiement { font-size: 0.75rem; }
+    
+    .premium-list li { font-size: 0.95rem; padding: 15px 0; } /* Textes des coupes plus petits */
+    .premium-list li span { font-size: 0.65rem; }
+    
+    /* 6. Vitrine */
     .vitrine-row { flex-direction: column; gap: 20px; align-items: center; }
     .vitrine-reel { flex: auto; width: 100%; max-width: 240px; margin: 0 auto; } 
-    .vitrine-photos { width: 100%; max-width: 320px; margin: 0 auto; text-align: center; } 
+    .vitrine-photos { width: 100%; max-width: 100%; margin: 0 auto; text-align: center; } 
+    .vitrine-photos h4 { font-size: 1.2rem; margin-bottom: 15px; } /* Titre "Burst Fade" plus petit */
     .vitrine-scroll { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; overflow-x: visible; padding-bottom: 0; }
     .photo-box { width: 100%; flex: none; height: auto; aspect-ratio: 3 / 4; border-radius: 6px; }
     .carousel-btn { display: none; }
-    .form-row { flex-direction: column; gap: 15px; }
+    
+    /* 7. Contact & Footer */
+    .form-row { flex-direction: column; gap: 12px; }
+    .contact-card { padding: 25px 15px; }
+    .form-contact input, .form-contact textarea { font-size: 0.9rem; padding: 12px; }
+    
+    .footer-col h4 { font-size: 1rem; }
+    .footer-col p, .footer-col ul li a { font-size: 0.85rem; }
+    
+    /* 8. Fenêtre Calendly */
+    .modal-container { height: 85vh; border-radius: 12px; }
 }
-
-
-/* ========================================== */
-/* ANIMATIONS AU DÉFILEMENT (REVEAL)          */
-/* ========================================== */
-
-/* État de départ : invisible */
-.reveal {
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Animation très fluide */
-}
-
-/* État final : visible et à sa place */
-.reveal.visible {
-    opacity: 1;
-    transform: translate(0, 0);
-}
-
-/* Les directions d'où vient l'élément */
-.reveal-up { transform: translateY(50px); }
-.reveal-left { transform: translateX(-50px); }
-.reveal-right { transform: translateX(50px); }
-
-/* Délais pour créer un effet "cascade" (l'un après l'autre) */
-.delay-1 { transition-delay: 0.15s; }
-.delay-2 { transition-delay: 0.3s; }
