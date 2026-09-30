@@ -224,11 +224,14 @@
 
     </main>
 
-    <!-- FENÊTRE POP-UP CALENDLY (le script est chargé par script.js au premier clic) -->
+    <!-- FENÊTRE POP-UP CALENDLY -->
     <div id="calendly-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="Réserver un créneau">
         <div class="modal-container">
             <button id="btn-close-modal" class="close-btn" type="button" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
-            <div class="calendly-inline-widget" data-url="https://calendly.com/latternerthomas07/lattern-hair?hide_gdpr_banner=1&locale=fr"></div>        </div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/latternerthomas07/lattern-hair?hide_gdpr_banner=1&locale=fr" style="min-width:320px;height:100%;"></div>
+            <!-- Ajout du script ici pour forcer le chargement sur mobile -->
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
     </div>
 
    <!-- FENÊTRE POP-UP LIGHTBOX -->
