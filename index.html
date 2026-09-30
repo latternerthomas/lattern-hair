@@ -5,7 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="LATTERN'HAIR, barber étudiant à Blois. Coupes clean, tarif unique 10€, uniquement sur RDV.">
     <meta name="theme-color" content="#ffffff">
-    <script>if ('IntersectionObserver' in window) document.documentElement.classList.add('js');</script>
+    <script>
+    if ('IntersectionObserver' in window) {
+        document.documentElement.classList.add('js');
+        // Sécurité : si script.js ne démarre pas en 2,5 s, on affiche le site sans animations
+        setTimeout(function () {
+            if (!window.siteReady) document.documentElement.classList.remove('js');
+        }, 2500);
+    }
+    </script>
     <title>LATTERN'HAIR</title>
     <link id="site-favicon" rel="icon" type="image/png" href="images/logo.png">
 
