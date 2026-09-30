@@ -1,4 +1,6 @@
-/* VARIABLES GLOBALES */
+/* ========================================== */
+/* VARIABLES GLOBALES                         */
+/* ========================================== */
 :root {
     --bg-color: #ffffff;
     --text-color: #000000;
@@ -10,72 +12,72 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Glissement doux pour le menu */
-    scroll-padding-top: 75px; /* Les titres ne se cachent plus sous la navbar */
+    scroll-behavior: smooth;
+    scroll-padding-top: 75px; /* Les titres ne se cachent pas sous la navbar */
+    -webkit-text-size-adjust: 100%; /* Pas d'agrandissement du texte en paysage sur iPhone */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
 
-body { 
-    background-color: var(--bg-color); 
-    color: var(--text-color); 
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     min-height: 100dvh;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
-/* Bloque le défilement du site en arrière-plan (pour la modale) */
+/* Bloque le défilement du site en arrière-plan (pour les modales) */
 body.no-scroll {
     overflow: hidden !important;
 }
 
-/* NAVBAR APPLE STYLE (Effet Verre Dépoli) */
+/* ========================================== */
+/* NAVBAR                                     */
+/* ========================================== */
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 15px 30px; 
-    border-bottom: none; 
-    background-color: rgba(255, 255, 255, 0.75); 
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px); 
-    position: sticky; 
+    padding: 15px 30px;
+    border-bottom: none;
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* LOGO EN CERCLE */
-.logo { 
-    height: 45px; 
-    width: 45px; 
-    object-fit: contain; 
-    background-color: #ffffff; 
-    border-radius: 50%; 
-    padding: 8px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08); 
+.logo {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-/* MENU CENTRÉ */
-.nav-tabs { 
-    display: flex; 
-    gap: 40px; 
-    position: absolute; 
-    left: 50%; 
-    transform: translateX(-50%); 
+.nav-tabs {
+    display: flex;
+    gap: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* LIENS DU MENU ET ANIMATION DU TRAIT */
 .tab-btn {
     background: none; border: none; color: #555555;
     font-weight: 700; font-size: 0.95rem;
     text-transform: uppercase; cursor: pointer; transition: color 0.3s;
-    text-decoration: none; 
-    position: relative; 
+    text-decoration: none;
+    position: relative;
     padding-bottom: 5px;
 }
 
-.tab-btn:hover, .tab-btn.active { 
-    color: #000000; 
+.tab-btn:hover, .tab-btn.active {
+    color: #000000;
 }
 
 .tab-btn::after {
@@ -86,30 +88,31 @@ body.no-scroll {
     width: 100%;
     height: 2px;
     background-color: #000000;
-    transform: scaleX(0); 
+    transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 .tab-btn:hover::after, .tab-btn.active::after {
-    transform: scaleX(1); 
+    transform: scaleX(1);
     transform-origin: left;
 }
 
 .burger-menu { display: none; }
 
-/* ZONE CENTRALE */
+/* ========================================== */
+/* STRUCTURE ET SECTIONS                      */
+/* ========================================== */
 .app-container {
-    flex-grow: 1; 
-    display: flex; 
-    flex-direction: column; 
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
-/* SECTIONS ZÉBRÉES */
 .page-section {
     width: 100%;
-    padding: 100px 20px; 
+    padding: 100px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,12 +143,12 @@ body.no-scroll {
     color: var(--text-color);
 }
 
-/* ACCUEIL HERO : Prend tout l'écran */
+/* ACCUEIL : prend tout l'écran */
 #accueil {
-    min-height: calc(100vh - 75px); /* Hauteur de l'écran moins la barre de navigation */
-    min-height: calc(100svh - 75px); /* Version adaptée aux barres d'adresse mobiles */
-    justify-content: center; /* Centre le titre et le bouton verticalement */
-    border-bottom: 1px solid var(--border); /* Ligne de séparation élégante avec la section concept */
+    min-height: calc(100vh - 75px);
+    min-height: calc(100svh - 75px); /* Adapté aux barres d'adresse mobiles */
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -154,7 +157,6 @@ h1 { font-size: 4rem; font-weight: 900; letter-spacing: 4px; margin-top: 0; marg
 h2 { font-size: 1.1rem; color: var(--subtext-color); margin-bottom: 15px; font-weight: 500; }
 .section-titre { font-size: 1.6rem; font-weight: 900; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-color); }
 
-/* LE TEXTE DU CONCEPT */
 .concept-text {
     color: var(--subtext-color);
     max-width: 800px;
@@ -167,14 +169,16 @@ h2 { font-size: 1.1rem; color: var(--subtext-color); margin-bottom: 15px; font-w
 .btn-principal {
     background-color: var(--btn-bg); color: var(--btn-text);
     padding: 18px 45px; font-size: 1.1rem; font-weight: 900;
-    border: none; 
-    border-radius: 6px; 
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
     text-transform: uppercase; transition: transform 0.2s;
     margin-bottom: 50px;
 }
 
-/* TARIFS - DESIGN PREMIUM TYPOGRAPHIQUE */
+/* ========================================== */
+/* TARIFS                                     */
+/* ========================================== */
 .tarifs-premium-container {
     display: flex; align-items: center; justify-content: space-between; gap: 80px; max-width: 1000px; width: 100%; margin: 0 auto; text-align: left;
 }
@@ -197,7 +201,9 @@ h2 { font-size: 1.1rem; color: var(--subtext-color); margin-bottom: 15px; font-w
 .premium-list li:hover { padding-left: 10px; border-bottom-color: var(--text-color); }
 .premium-list li span { font-size: 0.75rem; color: var(--subtext-color); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
 
-/* VITRINE */
+/* ========================================== */
+/* VITRINE                                    */
+/* ========================================== */
 .vitrine-row { display: flex; gap: clamp(20px, 4vw, 60px); align-items: flex-start; margin-bottom: 40px; text-align: left; max-width: 1000px; width: 100%; }
 .vitrine-reel { flex: 0 0 clamp(200px, 20vw, 300px); }
 .reel-box { width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 6px; background-color: #111; border: 4px solid var(--border); position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -215,18 +221,56 @@ h2 { font-size: 1.1rem; color: var(--subtext-color); margin-bottom: 15px; font-w
 .vitrine-scroll { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; }
 .photo-box { height: clamp(250px, 35vh, 360px); width: auto; aspect-ratio: 3 / 4; flex: 0 0 auto; border-radius: 6px; object-fit: cover; scroll-snap-align: center; border: 1px solid var(--border); cursor: pointer; transition: transform 0.2s; }
 
-.vitrine-divider { border: none; border-top: 1px solid var(--border); margin: clamp(30px, 6vw, 60px) 0; width: 100%; max-width: 1000px;}
+.vitrine-divider { border: none; border-top: 1px solid var(--border); margin: clamp(30px, 6vw, 60px) 0; width: 100%; max-width: 1000px; }
 
-/* CONTACT */
+/* ========================================== */
+/* CONTACT / FORMULAIRE                       */
+/* ========================================== */
 .contact-card { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 6px; padding: 40px; max-width: 700px; width: 100%; margin: 0 auto; }
 .form-contact { display: flex; flex-direction: column; gap: 15px; }
 .form-row { display: flex; gap: 15px; }
-.form-row input { flex: 1; }
-.form-contact input, .form-contact textarea { width: 100%; padding: 14px; border-radius: 4px; border: 1px solid var(--border); background-color: var(--bg-color); color: var(--text-color); font-family: 'Montserrat', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.3s; }
-.form-contact input:focus, .form-contact textarea:focus { border-color: var(--text-color); }
-.form-contact textarea { min-height: 120px; resize: none; }
 
-/* FOOTER PRO */
+.form-field { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; text-align: left; }
+.form-field label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--subtext-color); }
+.form-field label span { font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+.form-contact input, .form-contact textarea {
+    width: 100%;
+    padding: 14px;
+    min-height: 48px; /* zone de tap confortable */
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem; /* 16px : évite le zoom automatique sur iPhone */
+    outline: none;
+    transition: border-color 0.3s;
+    -webkit-appearance: none; appearance: none;
+    scroll-margin-top: 100px; /* le champ ne se cache pas sous la navbar au focus */
+}
+.form-contact input:focus, .form-contact textarea:focus { border-color: var(--text-color); }
+.form-contact textarea { min-height: 140px; resize: none; }
+
+/* Champs remplis automatiquement : texte lisible sur fond noir */
+.form-contact input:-webkit-autofill,
+.form-contact textarea:-webkit-autofill {
+    -webkit-text-fill-color: var(--text-color);
+    caret-color: var(--text-color);
+    box-shadow: 0 0 0 1000px var(--bg-color) inset;
+}
+
+/* Bouton Envoyer : toute la largeur, sur tous les écrans */
+.form-contact .btn-envoyer { width: 100%; max-width: none; min-height: 52px; margin: 10px 0 0 0; }
+
+/* Message de confirmation */
+#form-status { min-height: 1.4em; font-size: 1rem; font-weight: 600; text-align: center; color: var(--subtext-color); }
+#form-status.success { color: #4cd964; }
+#form-status.error { color: #ff6b6b; }
+
+/* ========================================== */
+/* FOOTER                                     */
+/* ========================================== */
 .site-footer {
     background-color: #0a0a0a;
     color: #ffffff;
@@ -247,183 +291,59 @@ h2 { font-size: 1.1rem; color: var(--subtext-color); margin-bottom: 15px; font-w
 .site-footer .reseaux-sociaux a:hover { color: #a0a0a0; transform: scale(1.1); }
 .footer-bottom { text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid #222222; color: #a0a0a0; font-size: 0.85rem; }
 
-/* MODALS */
+/* ========================================== */
+/* MODALES (CALENDLY + LIGHTBOX)              */
+/* ========================================== */
 .modal-overlay { position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 2000; }
 .modal-overlay.hidden { display: none; }
-.modal-container { 
-    background-color: #ffffff; 
-    width: 95%; 
-    max-width: 1000px; 
+.modal-container {
+    background-color: #ffffff;
+    width: 95%;
+    max-width: 1000px;
     height: min(800px, 92vh);
     height: min(800px, 92dvh);
-    border-radius: 8px; 
-    position: relative; 
+    border-radius: 8px;
+    position: relative;
     overflow: hidden;
 }
 .calendly-inline-widget { width: 100%; height: 100%; min-width: 320px; }
 
-.close-btn { 
-    position: absolute; 
-    top: 15px; 
-    right: 20px; 
-    font-size: 1.5rem; 
-    background-color: #f8f8f8; 
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    background-color: #f8f8f8;
     border: 1px solid var(--border);
-    cursor: pointer; 
-    color: #333; 
-    z-index: 2001; 
+    cursor: pointer;
+    color: #333;
+    z-index: 2001;
     width: 45px;
     height: 45px;
-    border-radius: 50%; 
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: all 0.2s;
 }
-.close-btn:hover { 
-    background-color: #000; 
+.close-btn:hover {
+    background-color: #000;
     color: #fff;
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
-#lightbox-modal { flex-direction: row; }
+#lightbox-modal { flex-direction: row; touch-action: none; }
 #lightbox-img, #lightbox-video { max-width: 85vw; max-height: 85vh; border-radius: 6px; object-fit: contain; box-shadow: 0 10px 40px rgba(0,0,0,0.6); outline: none; }
 .lightbox-btn { background: none; border: none; color: white; font-size: 3rem; cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 20px; transition: 0.3s; z-index: 3001; }
 .lightbox-btn:hover { color: #aaaaaa; }
 .lightbox-btn.left { left: 3%; }
 .lightbox-btn.right { right: 3%; }
 
-
 /* ========================================== */
-/* MOBILE (Adaptation pour téléphones)        */
+/* ANIMATIONS AU DÉFILEMENT                   */
+/* (la classe .js est ajoutée dans le <head>) */
 /* ========================================== */
-@media (max-width: 900px) {
-    /* 1. Navbar et Burger */
-    .navbar { padding: 15px 20px; }
-    .burger-menu { display: block; background: none; border: none; font-size: 1.6rem; color: #000; cursor: pointer; margin-left: auto; margin-right: 10px; }
-    
-    /* 2. Menu déroulant ultra-moderne (Centré et resserré) */
-    .nav-tabs { 
-        display: none; 
-        flex-direction: column; 
-        position: absolute; 
-        top: 100%; 
-        left: 0; 
-        width: 100%; 
-        transform: none;
-        background-color: rgba(255, 255, 255, 0.98); 
-        padding: 10px 0 20px 0; 
-        box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* Ombre plus douce */
-        border-radius: 0 0 20px 20px; /* Bords arrondis très esthétiques */
-        z-index: 1000; 
-        border-bottom: none;
-        gap: 5px; 
-    }
-    .nav-tabs.open { display: flex; }
-    
-    .tab-btn {
-        padding: 12px 20px; 
-        width: 100%;
-        text-align: center; 
-        font-size: 1.05rem; 
-        border-bottom: none; 
-    }
-    .tab-btn::after { display: none; }
-
-    /* 3. Textes globaux (Titres et paragraphes réduits) */
-    h1 { 
-        font-size: clamp(1.8rem, 8vw, 3.2rem); 
-        letter-spacing: 2px; 
-        margin-top: 15px; 
-        margin-bottom: 15px; 
-    }
-    h2 { font-size: 0.9rem; line-height: 1.5; } /* Réduit (était à 1rem) */
-    .section-titre { font-size: 1.3rem; margin-bottom: 10px; } /* Titres de section plus discrets */
-    .concept-text { font-size: 0.95rem; line-height: 1.6; } /* Paragraphe plus fin */
-    
-    .page-section { padding: 50px 20px; }
-
-    #accueil { 
-        min-height: auto; 
-        padding-top: 15vh; /* Gère l'espace exact au-dessus du logo/titre */
-        padding-bottom: 10vh; /* Gère l'espace sous le bouton noir */
-        justify-content: flex-start; 
-    }
-
-    /* 4. Boutons */
-    .btn-principal {
-        position: relative;
-        z-index: 10;       
-        width: 100%;
-        max-width: 320px; 
-        padding: 15px 20px;
-        font-size: 0.9rem;
-    }
-    
-    /* 5. Tarifs Premium Mobile (Textes et Chiffre plus petits) */
-    .tarifs-premium-container { flex-direction: column; gap: 35px; text-align: left; }
-    .premium-price-side { padding-right: 0; border-right: none; display: flex; flex-direction: column; align-items: flex-start; border-bottom: 1px solid var(--border); padding-bottom: 25px; }
-    
-    .premium-label { font-size: 0.75rem; }
-    .premium-chiffre { font-size: 5rem; margin: 5px 0 10px 0; } /* Encore réduit (était à 6rem) */
-    .premium-desc { font-size: 0.9rem; margin-bottom: 25px; }
-    .premium-paiement { font-size: 0.75rem; }
-    
-    .premium-list li { font-size: 0.95rem; padding: 15px 0; } /* Textes des coupes plus petits */
-    .premium-list li span { font-size: 0.65rem; }
-    
-    /* 6. Vitrine */
-    .vitrine-row { flex-direction: column; gap: 30px; align-items: center; width: 100%; }
-    .vitrine-reel { flex: auto; width: 100%; max-width: 280px; margin: 0 auto; } 
-    .vitrine-photos { width: 100vw; margin: 0 -20px; text-align: center; } /* Déborde légèrement pour inciter au swipe */
-    .vitrine-photos h4 { font-size: 1.2rem; margin-bottom: 15px; } 
-    
-    .vitrine-scroll { 
-        display: flex; 
-        gap: 15px; 
-        overflow-x: auto; 
-        padding: 0 20px 20px 20px; 
-        scroll-snap-type: x mandatory; 
-        -webkit-overflow-scrolling: touch; /* Fluidité native iOS */
-    }
-    .photo-box { 
-        width: 75%; /* Laisse dépasser la photo suivante de 25% pour faire comprendre qu'on peut swiper */
-        max-width: 260px; 
-        height: auto; 
-        aspect-ratio: 3 / 4; 
-        flex: 0 0 auto; 
-        border-radius: 8px; 
-        scroll-snap-align: center; 
-    }
-    .carousel-btn { display: none; }
-    
-    /* 7. Contact & Footer */
-    .form-row { flex-direction: column; gap: 12px; }
-    .contact-card { padding: 25px 15px; }
-    .form-contact input, .form-contact textarea { font-size: 1rem; padding: 12px; } /* 16px : évite le zoom auto sur iPhone */
-    
-    .footer-col h4 { font-size: 1rem; }
-    .footer-col p, .footer-col ul li a { font-size: 0.85rem; }
-    .site-footer { padding: 40px 20px 20px 20px; }
-    .footer-col { min-width: 0; flex-basis: 100%; }
-    
-    /* 8. Fenêtre Calendly */
-    .modal-container { border-radius: 12px; }
-
-    /* 9. Lightbox adaptée au tactile */
-    #lightbox-img, #lightbox-video { max-width: 94vw; }
-    .lightbox-btn { font-size: 1.8rem; padding: 12px; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
-    .lightbox-btn.left { left: 0; }
-    .lightbox-btn.right { right: 0; }
-}
-
-
-/* ========================================== */
-/* AJOUTS : ANIMATIONS, HOVER, ACCESSIBILITÉ  */
-/* ========================================== */
-
-/* ANIMATIONS AU DÉFILEMENT (la classe .js est ajoutée dans le <head>) */
 .js .reveal {
     opacity: 0;
     transition: opacity 0.8s ease, transform 0.8s ease;
@@ -431,22 +351,31 @@ h2 { font-size: 1.1rem; color: var(--subtext-color); margin-bottom: 15px; font-w
 .js .reveal.reveal-up    { transform: translateY(40px); }
 .js .reveal.reveal-left  { transform: translateX(-60px); }
 .js .reveal.reveal-right { transform: translateX(60px); }
-@media (max-width: 900px) {
-    /* Sur mobile, tout arrive du bas (évite les débordements sur le côté) */
-    .js .reveal.reveal-left, .js .reveal.reveal-right { transform: translateY(40px); }
-}
 .js .reveal.delay-1 { transition-delay: 0.15s; }
 .js .reveal.delay-2 { transition-delay: 0.3s; }
 .js .reveal.visible { opacity: 1; transform: none; } /* toujours en dernier */
 
-/* HOVER uniquement sur appareils avec souris */
+/* ========================================== */
+/* SOURIS UNIQUEMENT (pas de hover collé)     */
+/* ========================================== */
 @media (hover: hover) {
     .btn-principal:hover { transform: scale(1.05); }
     .carousel-btn:hover { transform: scale(1.1); }
     .photo-box:hover { transform: scale(1.03); }
 }
 
-/* ACCESSIBILITÉ */
+@media (hover: none) {
+    .premium-list li:hover { padding-left: 0; border-bottom-color: var(--border); }
+    .footer-col ul li a:hover { padding-left: 0; color: #a0a0a0; }
+    .site-footer .reseaux-sociaux a:hover { transform: none; color: #ffffff; }
+    .lightbox-btn:hover { color: white; }
+    .close-btn:hover { background-color: #f8f8f8; color: #333; transform: none; }
+}
+
+/* ========================================== */
+/* TACTILE ET ACCESSIBILITÉ                   */
+/* ========================================== */
+a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -456,5 +385,138 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
     }
 }
 
-/* MESSAGE D'ÉTAT DU FORMULAIRE */
-#form-status { min-height: 1.2em; font-size: 0.9rem; color: var(--subtext-color); text-align: center; }
+/* ========================================== */
+/* MOBILE / TABLETTE (900px et moins)         */
+/* ========================================== */
+@media (max-width: 900px) {
+    /* 1. Navbar et burger */
+    .navbar { padding: 15px 20px; }
+    .burger-menu { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background: none; border: none; font-size: 1.6rem; color: #000; cursor: pointer; margin-left: auto; margin-right: 0; }
+
+    /* 2. Menu déroulant */
+    .nav-tabs {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        transform: none;
+        background-color: rgba(255, 255, 255, 0.98);
+        padding: 10px 0 20px 0;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        border-radius: 0 0 20px 20px;
+        z-index: 1000;
+        border-bottom: none;
+        gap: 5px;
+        max-height: calc(100vh - 75px);
+        max-height: calc(100dvh - 75px);
+        overflow-y: auto; /* le menu défile s'il ne tient pas à l'écran (mode paysage) */
+    }
+    .nav-tabs.open { display: flex; }
+
+    .tab-btn {
+        padding: 12px 20px;
+        width: 100%;
+        text-align: center;
+        font-size: 1.05rem;
+        border-bottom: none;
+    }
+    .tab-btn::after { display: none; }
+
+    /* 3. Textes */
+    h1 {
+        font-size: clamp(1.8rem, 8vw, 3.2rem);
+        letter-spacing: 2px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    h2 { font-size: 0.9rem; line-height: 1.5; }
+    .section-titre { font-size: 1.3rem; margin-bottom: 10px; }
+    .concept-text { font-size: 0.95rem; line-height: 1.6; }
+
+    .page-section { padding: 50px 20px; }
+
+    #accueil {
+        min-height: auto;
+        padding-top: 15vh;
+        padding-bottom: 10vh;
+        justify-content: flex-start;
+    }
+
+    /* 4. Boutons */
+    .btn-principal {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 320px;
+        padding: 15px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* 5. Tarifs */
+    .tarifs-premium-container { flex-direction: column; gap: 35px; text-align: left; }
+    .premium-price-side { padding-right: 0; border-right: none; display: flex; flex-direction: column; align-items: flex-start; border-bottom: 1px solid var(--border); padding-bottom: 25px; }
+
+    .premium-label { font-size: 0.75rem; }
+    .premium-chiffre { font-size: 5rem; margin: 5px 0 10px 0; }
+    .premium-desc { font-size: 0.9rem; margin-bottom: 25px; }
+    .premium-paiement { font-size: 0.75rem; }
+
+    .premium-list li { font-size: 0.95rem; padding: 15px 0; }
+    .premium-list li span { font-size: 0.65rem; }
+
+    /* 6. Vitrine */
+    .vitrine-row { flex-direction: column; gap: 30px; align-items: center; width: 100%; }
+    .vitrine-reel { flex: auto; width: 100%; max-width: 280px; margin: 0 auto; }
+    .vitrine-photos { width: calc(100% + 40px); margin: 0 -20px; text-align: center; }
+    .vitrine-photos h4 { font-size: 1.2rem; margin-bottom: 15px; }
+
+    .vitrine-scroll {
+        display: flex;
+        gap: 15px;
+        overflow-x: auto;
+        padding: 0 20px 20px 20px;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 0 20px;
+        overscroll-behavior-x: contain; /* le swipe des photos ne déclenche pas le "retour" du navigateur */
+        -webkit-overflow-scrolling: touch;
+    }
+    .photo-box {
+        width: 75%; /* la photo suivante dépasse : on comprend qu'on peut swiper */
+        max-width: 260px;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        flex: 0 0 auto;
+        border-radius: 8px;
+        scroll-snap-align: start;
+    }
+    .carousel-btn { display: none; }
+
+    /* 7. Contact et footer */
+    .form-row { flex-direction: column; gap: 15px; }
+    .contact-card { padding: 25px 15px; }
+    .form-contact input, .form-contact textarea { font-size: 1rem; padding: 12px; }
+
+    .footer-col h4 { font-size: 1rem; }
+    .footer-col p, .footer-col ul li a { font-size: 0.85rem; }
+    .site-footer { padding: 40px 20px 20px 20px; }
+    .footer-col { min-width: 0; flex-basis: 100%; }
+    .footer-col ul li a { display: inline-block; padding: 6px 0; }
+    .site-footer .reseaux-sociaux { margin-left: -8px; }
+    .site-footer .reseaux-sociaux a { padding: 8px; margin-right: 6px; }
+
+    /* 8. Calendly en plein écran, croix dans un bandeau blanc */
+    .modal-container { width: 100%; height: 100vh; height: 100dvh; border-radius: 0; padding-top: 60px; }
+    .modal-container .close-btn { top: 8px; right: 12px; }
+
+    /* 9. Lightbox tactile */
+    #lightbox-img, #lightbox-video { max-width: 94vw; }
+    .lightbox-btn { font-size: 1.8rem; padding: 12px; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+    .lightbox-btn.left { left: 0; }
+    .lightbox-btn.right { right: 0; }
+
+    /* Sur mobile, les animations arrivent toujours du bas (évite les débordements sur le côté) */
+    .js .reveal.reveal-left, .js .reveal.reveal-right { transform: translateY(40px); }
+    .js .reveal.visible { transform: none; }
+}
