@@ -1,3 +1,5 @@
+window.siteReady = true; // indique au HTML que le script a bien démarré
+
 // ==========================================
 // 0. ANIMATIONS AU DÉFILEMENT (REVEAL)
 // En premier : même si une autre partie du script plante, le site reste visible
